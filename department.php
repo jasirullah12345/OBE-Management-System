@@ -22,7 +22,7 @@ include("header.php");
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1><strong>User</strong></h1>
+                        <h1><strong>Department</strong></h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -43,16 +43,16 @@ include("header.php");
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Add New User </h3>
+                                <h3 class="card-title">Add New Department </h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form id="quickForm">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputUSerName">User Name</label>
+                                        <label for="exampleInputDepartmentName">Department Name</label>
                                         <input type="text" name="text" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter USer Name">
+                                               placeholder="Enter Department Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
@@ -91,7 +91,7 @@ include("header.php");
 
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">All Users </h3>
+                    <h3 class="card-title">All Departments </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body overflow-auto">

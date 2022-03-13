@@ -3,7 +3,7 @@
     <strong>Copyright &copy; <a href="#">Vizro.net</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <strong>Developed By  <a href="#">Ali Usama</a></strong>
+      <strong>Developed By  <a href="#">Jasir Ullah Khan / Ali Usama</a></strong>
     </div>
   </footer>
 
