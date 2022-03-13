@@ -79,6 +79,23 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+
+
+
+<!-- checkeer -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>

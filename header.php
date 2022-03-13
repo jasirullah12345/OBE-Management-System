@@ -41,6 +41,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
   <!-- remove -->
 
+   <!-- Table anad CSV download -->
+
+
+
+ <!-- DataTables -->
+ <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+ 
    
+  
+ 
+
+
+
+
   </head>
 <body id="bodyStart" class="hold-transition sidebar-mini layout-fixed">
