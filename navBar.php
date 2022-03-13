@@ -87,7 +87,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./department.php" class="nav-link" id="">
-                        <i class="nav-icon fa fa-dropbox"></i>
+                        <i class="nav-icon fa fa-building-o"></i>
                         <p>
                             Departments
                         </p>
@@ -95,7 +95,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./program.php" class="nav-link courser" id="">
-                        <i class="nav-icon fa fa-bar-chart"></i>
+                        <i class="nav-icon fa fa-tasks"></i>
                         <p>
                             Programs
                         </p>
@@ -103,7 +103,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./session.php" class="nav-link courser" id="">
-                        <i class="nav-icon fas fa-comment-dollar"></i>
+                        <i class="nav-icon fa fa-calendar"></i>
                         <p>
                             Sessions
                         </p>
@@ -111,7 +111,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./teacher.php" class="nav-link courser">
-                        <i class="nav-icon 	fas fa-envelope-open-text"></i>
+                        <i class="nav-icon 	fa fa-child"></i>
                         <p>
                             Teachers
                         </p>
@@ -119,7 +119,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./course.php" class="nav-link courser">
-                        <i class="nav-icon fas fa-coins"></i>
+                        <i class="nav-icon fa fa-book"></i>
                         <p>
                             Courses
                         </p>
@@ -128,15 +128,23 @@
 
                 <li class="nav-item">
                     <a href="./course-to-teacher" class="nav-link courser" id="">
-                        <i class="nav-icon fa fa-rss"></i>
+                        <i class="nav-icon fa fa-exchange"></i>
                         <p>
                             Assigned Course
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="./course.php" class="nav-link courser">
+                        <i class="nav-icon fa fa-file"></i>
+                        <p>
+                            Documents
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="./plo" class="nav-link courser ViewClientBtnLink">
-                        <i class="nav-icon fa fa-street-view"></i>
+                        <i class="nav-icon fa fa-check-square-o"></i>
                         <p>
                             PLOs
                         </p>
@@ -144,7 +152,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./clo" class="nav-link courser ViewClientBtnLink">
-                        <i class="nav-icon fa fa-street-view"></i>
+                        <i class="nav-icon fa fa-edit"></i>
                         <p>
                             CLOs
                         </p>
@@ -152,7 +160,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="./bt-level" class="nav-link">
-                        <i class="nav-icon fas fa-sign-out-alt"></i>
+                        <i class="nav-icon fas fa fa-level-up"></i>
                         <p>
                             BT Level
                         </p>

@@ -49,22 +49,21 @@ include("header.php");
                             <!-- form start -->
                             <form id="quickForm">
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputPLOName">PLO Name</label>
+                                <div class="form-group">
+                                        <label for="exampleInputUSerName">Plo No</label>
                                         <input type="text" name="text" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter PLO Name">
+                                               placeholder="Enter Plo No">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter email">
+                                        <label for="exampleInputEmail1">Plo Name</label>
+                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1"
+                                               placeholder="Enter Plo Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" name="password" class="form-control"
-                                               id="exampleInputPassword1" placeholder="Password">
+                                        <label for="exampleInputPassword1">Keywords</label>
+                                        <input type="text" name="password" class="form-control"
+                                               id="exampleInputPassword1" placeholder="Enter Keywords">
                                     </div>
-                                    <!-- Table and CVS download  -->
 
 
                                 </div>

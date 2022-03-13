@@ -49,23 +49,22 @@ include("header.php");
                             <!-- form start -->
                             <form id="quickForm">
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputAssign CourseName">Assign Course Name</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter Assign Course Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" name="password" class="form-control"
-                                               id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <!-- Table and CVS download  -->
-
+                                <div class="form-group">
+                                        <label for="exampleInputProgramName">Select Teacher</label>
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Choose Teacher</option>
+                                            <option value="Kanwer Kaleem">Kanwer Kaleem</option>
+                                            <option value="Qasim Niaz">Qasim Niaz</option>
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputProgramName">Select Course</label>
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Choose Course</option>
+                                            <option value="Visual Programing">Visual Programing</option>
+                                            <option value="C ++">C ++</option>
+                                        </select>
+                                </div>
 
                                 </div>
                                 <!-- /.card-body -->

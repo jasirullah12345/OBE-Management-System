@@ -48,26 +48,14 @@ include("header.php");
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form id="quickForm">
-                                <div class="card-body">
+                                   <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputDepartmentName">Department Name</label>
                                         <input type="text" name="text" class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter Department Name">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" name="password" class="form-control"
-                                               id="exampleInputPassword1" placeholder="Password">
-                                    </div>
-                                    <!-- Table and CVS download  -->
 
-
-                                </div>
+                                    </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
