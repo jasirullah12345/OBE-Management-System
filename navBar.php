@@ -70,7 +70,7 @@
 
                 </li>
                 <li class="nav-item">
-                    <a href="./index.php" class="nav-link courser homePageclass">
+                    <a href="./index" class="nav-link courser homePageclass">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
                             Home
@@ -78,7 +78,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./user.php" class="nav-link" id="">
+                    <a href="./user" class="nav-link" id="">
                         <i class="nav-icon fa fa-user-plus"></i>
                         <p>
                             Users
@@ -86,7 +86,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./department.php" class="nav-link" id="">
+                    <a href="./department" class="nav-link" id="">
                         <i class="nav-icon fa fa-building-o"></i>
                         <p>
                             Departments
@@ -94,7 +94,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./program.php" class="nav-link courser" id="">
+                    <a href="./program" class="nav-link courser" id="">
                         <i class="nav-icon fa fa-tasks"></i>
                         <p>
                             Programs
@@ -102,7 +102,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./session.php" class="nav-link courser" id="">
+                    <a href="./session" class="nav-link courser" id="">
                         <i class="nav-icon fa fa-calendar"></i>
                         <p>
                             Sessions
@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./teacher.php" class="nav-link courser">
+                    <a href="./teacher" class="nav-link courser">
                         <i class="nav-icon 	fa fa-child"></i>
                         <p>
                             Teachers
@@ -118,7 +118,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./course.php" class="nav-link courser">
+                    <a href="./course" class="nav-link courser">
                         <i class="nav-icon fa fa-book"></i>
                         <p>
                             Courses
@@ -135,7 +135,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="./course.php" class="nav-link courser">
+                    <a href="./document" class="nav-link courser">
                         <i class="nav-icon fa fa-file"></i>
                         <p>
                             Documents
