@@ -49,11 +49,42 @@ include("header.php");
                             <!-- form start -->
                             <form id="quickForm">
                                    <div class="card-body">
+                                   <div class="form-group">
+                                        <label for="exampleInputProgramName">Select Document Type</label>
+                                        <select name="" class="form-control" id="">
+                                            <option selected value="">Choose....</option>
+                                            <option value="Paper">Paper</option>
+                                             <option value="Assignments">Assignments</option>
+                                            <option value="Quiz">Quiz</option>
+                                        </select>
+                                </div>
                                     <div class="form-group">
-                                        <label for="exampleInputDocumentName">Document Name</label>
+                                        <label for="exampleInputDocumentName">Title</label>
                                         <input type="text" name="text" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter Document Name">
+                                               placeholder="Enter Title">
                                     </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputDocumentName">Description</label>
+                                        <textarea name="" class="form-control" id="" cols="10" rows="5"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputProgramName">Select CLO</label>
+                                        <select name="" class="form-control" id="">
+                                            <option selected value="">Choose....</option>
+                                            <option value="Paper">CLO1</option>
+                                             <option value="Assignments">CLO2</option>
+                                            <option value="Quiz">CLO3</option>
+                                        </select>
+                                </div>
+                                <div class="form-group">
+                                        <label for="exampleInputProgramName">Select PLO</label>
+                                        <select name="" class="form-control" id="">
+                                            <option selected value="">Choose....</option>
+                                            <option value="Paper">PLO</option>
+                                             <option value="Assignments">PLO2</option>
+                                            <option value="Quiz">PLO3</option>
+                                        </select>
+                                </div>
 
                                     </div>
                                 <!-- /.card-body -->
