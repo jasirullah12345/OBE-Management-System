@@ -1,4 +1,6 @@
 <?php
+require "php/sessionCheck.php";
+require "php/database.php";
 include("header.php");
 ?>
 
@@ -39,7 +41,13 @@ include("header.php");
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>45</h3>
+                                <h3><?php $sql = "select count(id) as total_course from courses";
+                                $qr = mysqli_query($conn, $sql);
+                                $data = mysqli_fetch_assoc($qr);
+                                if($data['total_course']==NULL)
+                                { echo "0";}
+                                else
+                                {echo   $data['total_course'];}?></h3>
                                 <p>Total Course</p>
                             </div>
                             <div class="icon">
@@ -54,7 +62,13 @@ include("header.php");
                         <!-- small box -->
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>12</h3>
+                                <h3><?php $sql = "select count(id) as total_session from sessions";
+                                $qr = mysqli_query($conn, $sql);
+                                $data = mysqli_fetch_assoc($qr);
+                                if($data['total_session']==NULL)
+                                { echo "0";}
+                                else
+                                {echo   $data['total_session'];}?></h3>
 
                                 <p>Active Session</p>
                             </div>
@@ -69,7 +83,13 @@ include("header.php");
                         <!-- small box -->
                         <div class="small-box bg-warning">
                             <div class="inner">
-                                <h3>40</h3>
+                                <h3><?php $sql = "select count(id) as total_teacher from teachers";
+                                $qr = mysqli_query($conn, $sql);
+                                $data = mysqli_fetch_assoc($qr);
+                                if($data['total_teacher']==NULL)
+                                { echo "0";}
+                                else
+                                {echo   $data['total_teacher'];}?></h3>
                                 <p>Total Teachers</p>
                             </div>
                             <div class="icon">
@@ -84,9 +104,15 @@ include("header.php");
                         <!-- small box -->
                         <div class="small-box bg-danger">
                             <div class="inner">
-                                <h3>70</h3>
+                                <h3><?php $sql = "select count(id) as total_department from department";
+                                $qr = mysqli_query($conn, $sql);
+                                $data = mysqli_fetch_assoc($qr);
+                                if($data['total_department']==NULL)
+                                { echo "0";}
+                                else
+                                {echo   $data['total_department'];}?></h3>
 
-                                <p>Courses</p>
+                                <p>Total Departments</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
