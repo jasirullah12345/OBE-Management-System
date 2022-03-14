@@ -47,7 +47,7 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="" method="post" action="php/department/insert.php">
                                    <div class="card-body">
                                    <div class="form-group">
                                         <label for="exampleInputProgramName">Select Document Type</label>

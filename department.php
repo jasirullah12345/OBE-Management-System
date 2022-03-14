@@ -47,12 +47,12 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="" method="post" action="php/department/insert.php">
                                    <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputDepartmentName">Department Name</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter Department Name">
+                                        <input type="text" name="departNameForAddition" class="form-control" id="exampleInputEmail1"
+                                             required  placeholder="Enter Department Name">
                                     </div>
 
                                     </div>
