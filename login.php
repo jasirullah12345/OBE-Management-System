@@ -25,9 +25,9 @@
         <div class="card-body login-card-body pb-4">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="#" method="post">
+            <form action="php/login.php" method="post">
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="UserName">
+                    <input type="email" name="email" class="form-control" placeholder="UserName">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -47,6 +47,11 @@
                         <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                     </div>
                 </div>
+                <?php
+                if (isset($_GET["error"])) {
+                    echo "<span class='text-center mx-auto d-block mt-2 text-danger'>" . $_GET["error"] . "</span>";
+                }
+                ?>
             </form>
         </div>
         <!-- /.login-card-body -->
