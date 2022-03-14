@@ -27,7 +27,7 @@ include("header.php");
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Validation</li>
+                            <li class="breadcrumb-item active">User</li>
                         </ol>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="quickForm" method="post" action="php/user/insert.php">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputUSerName">User Name</label>
@@ -64,7 +64,6 @@ include("header.php");
                                         <input type="password" name="password" class="form-control"
                                                id="exampleInputPassword1" placeholder="Password">
                                     </div>
-                                    
 
 
                                 </div>
