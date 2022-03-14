@@ -232,4 +232,5 @@ include("header.php");
 </script>
 <?php
 include("footer.php");
+require "php/alerts.php";
 ?>

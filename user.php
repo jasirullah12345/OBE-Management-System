@@ -16,8 +16,6 @@ include("header.php");
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
@@ -51,21 +49,22 @@ include("header.php");
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputUSerName">User Name</label>
-                                        <input required type="text" name="userName" autocomplete="off" class="form-control" id="exampleInputEmail1"
+                                        <input required type="text" name="userName" autocomplete="off"
+                                               class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter USer Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input required type="email" autocomplete="off" name="userEmail" class="form-control" id="exampleInputEmail1"
+                                        <input required type="email" autocomplete="off" name="userEmail"
+                                               class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input required type="password" autocomplete="off" name="userPassowrd" class="form-control"
+                                        <input required type="password" autocomplete="off" name="userPassword"
+                                               class="form-control"
                                                id="exampleInputPassword1" placeholder="Password">
                                     </div>
-
-
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
@@ -234,4 +233,5 @@ include("header.php");
 </script>
 <?php
 include("footer.php");
+require "php/alerts.php";
 ?>

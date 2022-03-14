@@ -113,4 +113,5 @@ include("header.php");
 
 <?php
 include("footer.php");
+require "php/alerts.php";
 ?>
