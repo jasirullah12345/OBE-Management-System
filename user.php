@@ -51,17 +51,17 @@ include("header.php");
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputUSerName">User Name</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
+                                        <input required type="text" name="userName" autocomplete="off" class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter USer Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                        <input required type="email" autocomplete="off" name="userEmail" class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter email">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputPassword1">Password</label>
-                                        <input type="password" name="password" class="form-control"
+                                        <input required type="password" autocomplete="off" name="userPassowrd" class="form-control"
                                                id="exampleInputPassword1" placeholder="Password">
                                     </div>
 

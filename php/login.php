@@ -10,7 +10,7 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while ($row = $result->fetch_assoc()) {
-        if ($row["password"] == $password) {
+        if  ($row["password"] == $password) {
             $_SESSION['id'] = $row["id"];
             $_SESSION['name'] = $row["name"];
             $_SESSION['email'] = $row["email"];
