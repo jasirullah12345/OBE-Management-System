@@ -53,7 +53,7 @@ include("header.php");
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputProgramName">Select Department</label>
-                                        <select name="selectedDepartment" class="form-control" id="">
+                                        <select name="selectedDepartment" class="form-control" id="" required>
                                             <option value="">Choose Department</option>
                                           <?php  $sql_depatrment = "select * from department";
                                                  $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
@@ -72,7 +72,7 @@ include("header.php");
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleProgramName">Program Name</label>
-                                        <input type="text" name="programNameForAddtition" class="form-control" id=""
+                                        <input required type="text" name="programNameForAddtition" class="form-control" id=""
                                                placeholder="Enter Program Name">
                                     </div>
                                     

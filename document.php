@@ -50,154 +50,135 @@ include("header.php");
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form id="documentForm" method="post" action="php/documents/insert.php">
-                                   <div class="card-body">
-                                   <div class="form-group">
+                                <div class="card-body">
+                                    <div class="form-group">
                                         <label required for="exampleInputProgramName">Select Document Type</label>
-                                        <select name="selectedDocumentType" class="form-control" id="">
+                                        <select name="selectedDocumentType" class="form-control" id="" required>
                                             <option value="">Choose Document Type</option>
-                                          <?php  $sql_depatrment = "select * from documents";
-                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
-                                                 if(mysqli_num_rows($qr_depatrment)>0)
-                                                  {
-                                                     while($data = mysqli_fetch_array($qr_depatrment))
-                                                     {
-                                                        echo '<option value="'.$data['type'].'">'.$data['type'].'</option>';
-                                                     }
-                                                  }
-                                                  else
-                                                  {
-                                                    echo '<option value="">Error</option>';
-                                                  }?>
+                                            <option value="Paper">Paper</option>
+                                            <option value="Assignment">Assignment</option>
+                                            <option value="Quiz">Quiz</option>
                                         </select>
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for="exampleInputTitle">Title</label>
-                                        <input required type="text" name="titleOfDocumentForAddition" class="form-control" id=""
+                                        <input required type="text" name="titleOfDocumentForAddition"
+                                               class="form-control" id=""
                                                placeholder="Enter Title">
                                     </div>
-                                   
+
 
                                     <div class="form-group">
                                         <label for="exampleInputCLO">Select CLO</label>
-                                        <select required name="selectedCLOForDocument" class="form-control" id="">
+                                        <select required name="selectedCLOForDocument" class="form-control" id=""
+                                                required>
                                             <option value="">Choose CLO</option>
-                                          <?php  $sql_depatrment = "select * from clo";
-                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
-                                                 if(mysqli_num_rows($qr_depatrment)>0)
-                                                  {
-                                                     while($data = mysqli_fetch_array($qr_depatrment))
-                                                     {
-                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
-                                                     }
-                                                  }
-                                                  else
-                                                  {
-                                                    echo '<option value="">Error</option>';
-                                                  }?>
+                                            <?php $sql_depatrment = "select * from clo";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            } ?>
                                         </select>
                                     </div>
 
 
-                                <div class="form-group">
-                                        <label for="exampleInputPLO">Select PLO</label>
-                                        <select required name="selectedPLOForDocument" class="form-control" id="">
-                                            <option value="">Choose PLO</option>
-                                          <?php  $sql_depatrment = "select * from plo";
-                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
-                                                 if(mysqli_num_rows($qr_depatrment)>0)
-                                                  {
-                                                     while($data = mysqli_fetch_array($qr_depatrment))
-                                                     {
-                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
-                                                     }
-                                                  }
-                                                  else
-                                                  {
-                                                    echo '<option value="">Error</option>';
-                                                  }?>
-                                        </select>
-                                    </div>
-                                    </form>
                                     <div class="form-group">
-                                        <label required for="exampleInputDescription">Description</label>
-                                        <textarea name="titleOfDescriptionForAddition" class="form-control" form="documentForm" id="" cols="10" rows="5"></textarea>
+                                        <label for="exampleInputPLO">Select PLO</label>
+                                        <select required name="selectedPLOForDocument" class="form-control" id=""
+                                                required>
+                                            <option value="">Choose PLO</option>
+                                            <?php $sql_depatrment = "select * from plo";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            } ?>
+                                        </select>
                                     </div>
-                                    <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>  
-                                    </div>
-                                <!-- /.card-body -->
-                               
-                            
-                            
+                            </form>
+                            <div class="form-group">
+                                <label required for="exampleInputDescription">Description</label>
+                                <textarea required name="titleOfDescriptionForAddition" class="form-control"
+                                          form="documentForm" id="" cols="10" rows="5"></textarea>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
-                        <!-- /.card -->
-                    </div>
-                    <!--/.col (left) -->
-                    <!-- right column -->
-                    <div class="col-md-6">
+                        <!-- /.card-body -->
+
 
                     </div>
-                    <!--/.col (right) -->
+                    <!-- /.card -->
                 </div>
-                <!-- /.row -->
-            </div><!-- /.container-fluid -->
-        </section>
+                <!--/.col (left) -->
+                <!-- right column -->
+                <div class="col-md-6">
 
-        <div class="card-body">
-
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">All Documents </h3>
                 </div>
-                <!-- /.card-header -->
-                <div class="card-body overflow-auto">
-                    <table id="example1" class="table table-bordered table-striped">
-                        <thead>
-                        <tr>
-                            <th>Sr #</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
-                            <td>
-                                <button class="btn btn-warning">Action</button>
-                            </td>
-                            <td>
-                                <button class="btn btn-danger">Action</button>
-                            </td>
-                        </tr>
-
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>Sr #</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
-                        </tr>
-                        </tfoot>
-                    </table>
-                </div>
-                <!-- /.card-body -->
+                <!--/.col (right) -->
             </div>
-            <!-- /.card -->
+            <!-- /.row -->
+    </div><!-- /.container-fluid -->
+    </section>
 
+    <div class="card-body">
 
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">All Documents </h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body overflow-auto">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sr #</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Trident</td>
+                        <td>Internet</td>
+                        <td>
+                            <button class="btn btn-warning">Action</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">Action</button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Sr #</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.card-body -->
         </div>
-    </div>
+        <!-- /.card -->
 
+
+    </div>
 </div>
+
+</body>
 <!-- ./wrapper -->
 
 <!-- jQuery -->

@@ -51,45 +51,33 @@ include("header.php");
                             <!-- form start -->
                             <form id="" method="post" action="php/course-to-teacher/insert.php">
                                 <div class="card-body">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="exampleInputProgramName">Select Teacher</label>
-                                        <select name="selectedTeacherForCourse" class="form-control" id="">
+                                        <select name="selectedTeacherForCourse" class="form-control" id="" required>
                                             <option value="">Choese Teacher</option>
-                                          <?php  $sql_depatrment = "select * from teachers";
-                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
-                                                 if(mysqli_num_rows($qr_depatrment)>0)
-                                                  {
-                                                     while($data = mysqli_fetch_array($qr_depatrment))
-                                                     {
-                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
-                                                     }
-                                                  }
-                                                  else
-                                                  {
-                                                    echo '<option value="">Error</option>';
-                                                  }?>
+                                            <?php $sql_depatrment = "select * from teachers";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            } ?>
                                         </select>
-                                </div>
+                                    </div>
 
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="exampleInputProgramName">Select Course</label>
-                                        <select name="selectedCourseForCourse" class="form-control" id="">
+                                        <select name="selectedCourseForCourse" class="form-control" id="" required>
                                             <option value="">Select Course</option>
-                                          <?php  $sql_depatrment = "select * from courses";
-                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
-                                                 if(mysqli_num_rows($qr_depatrment)>0)
-                                                  {
-                                                     while($data = mysqli_fetch_array($qr_depatrment))
-                                                     {
-                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
-                                                     }
-                                                  }
-                                                  else
-                                                  {
-                                                    echo '<option value="">Error</option>';
-                                                  }?>
+                                            <?php $sql_depatrment = "select * from courses";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            } ?>
                                         </select>
-                                </div>
+                                    </div>
 
                                 </div>
                                 <!-- /.card-body -->
