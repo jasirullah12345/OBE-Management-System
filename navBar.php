@@ -3,7 +3,8 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
         <li class="nav-item">
-            <a id="barofnav" class="nav-link" data-widget="pushmenu" href="./index" role="button"><i class="fas fa-bars"></i></a>
+            <a id="barofnav" class="nav-link" data-widget="pushmenu" href="./index" role="button"><i
+                        class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
             <a href="./index" class="nav-link">Home</a>
@@ -33,7 +34,11 @@
                 <img src="dist/img/avatar5.png" class="img-circle" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Jasir Ullah Khan</a>
+                <a href="#" class="d-block">
+                    <?php
+                    echo $_SESSION['name'];
+                    ?>
+                </a>
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <div id="upper_spinner" style="display: none;" class="spinner-border" role="status"></div>
