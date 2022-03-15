@@ -1,4 +1,6 @@
 <?php
+require "php/sessionCheck.php";
+require "php/database.php";
 include("header.php");
 ?>
 
@@ -49,7 +51,7 @@ include("header.php");
                             <!-- form start -->
                             <form id="quickForm">
                                 <div class="card-body">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="exampleInputUSerName">BT No</label>
                                         <input type="text" name="text" class="form-control" id="exampleInputEmail1"
                                                placeholder="Enter BT No">

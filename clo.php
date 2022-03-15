@@ -1,4 +1,6 @@
 <?php
+require "php/sessionCheck.php";
+require "php/database.php";
 include("header.php");
 ?>
 
