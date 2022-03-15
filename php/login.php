@@ -13,6 +13,7 @@ if ($result->num_rows > 0) {
         if ($row["password"] == $password) {
             $_SESSION['id'] = $row["id"];
             $_SESSION['name'] = $row["name"];
+            $_SESSION['role'] = $row["role"];
             $_SESSION['email'] = $row["email"];
             header("Location:../");
         } else {

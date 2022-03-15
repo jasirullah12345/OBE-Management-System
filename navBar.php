@@ -82,14 +82,19 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <?php
+                if ($_SESSION['role'] == "admin") {
+                    echo '<li class="nav-item">
                     <a href="./user" class="nav-link" id="">
                         <i class="nav-icon fa fa-user-plus"></i>
                         <p>
                             Users
                         </p>
                     </a>
-                </li>
+                </li>';
+                }
+                ?>
+
                 <li class="nav-item">
                     <a href="./department" class="nav-link" id="">
                         <i class="nav-icon fa fa-building-o"></i>

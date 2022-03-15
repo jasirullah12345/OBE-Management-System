@@ -2,6 +2,8 @@
 require "php/sessionCheck.php";
 require "php/database.php";
 include("header.php");
+if ($_SESSION['role'] != "admin")
+    header("Location:index");
 ?>
 
 <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -57,7 +59,7 @@ include("header.php");
                                         echo "Add New User";
                                     }
                                     ?>
-                                     </h3>
+                                </h3>
                             </div>
                             <?php
                             if (isset($_GET['edit']) && $_GET['edit'] == "true") {
@@ -153,7 +155,7 @@ include("header.php");
                         <tbody>
 
                         <?php
-                        $sql = "SELECT * FROM users";
+                        $sql = "SELECT * FROM users where role = 'user'";
                         $result = $conn->query($sql);
                         $count = 1;
                         // output data of each row
