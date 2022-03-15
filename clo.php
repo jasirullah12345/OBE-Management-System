@@ -47,22 +47,22 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="" method="post" action="php/clo/insert.php">
                                 <div class="card-body">
                                 <div class="form-group">
-                                        <label for="exampleInputUSerName">Clo No</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
+                                        <label for="Clo No">Clo No</label>
+                                        <input required type="text" name="CloNoForAddition" class="form-control" id=""
                                                placeholder="Enter Clo No">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Clo Name</label>
-                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter Clo Name">
+                                        <label for="CloNameForAddition">Clo Name</label>
+                                        <input required type="text" name="CloNameForAddition" class="form-control" id=""
+                                               placeholder="Enter Plo Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Keywords</label>
-                                        <input type="text" name="password" class="form-control"
-                                               id="exampleInputPassword1" placeholder="Enter Keywords">
+                                        <label for="CloKeywordForAddition">Keywords</label>
+                                        <input required type="text" name="CloKeywordForAddition" class="form-control"
+                                               id="" placeholder="Enter Keywords">
                                     </div>
 
 

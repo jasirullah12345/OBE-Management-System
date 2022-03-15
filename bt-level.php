@@ -47,22 +47,22 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="" method="post" action="php/btlevel/insert.php">
                                 <div class="card-body">
                                 <div class="form-group">
-                                        <label for="exampleInputUSerName">BT No</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
+                                        <label for="btNoForAddition">BT No</label>
+                                        <input required type="text" name="btNoForAddition" class="form-control" id=""
                                                placeholder="Enter BT No">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">BT Level</label>
-                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1"
+                                        <label for="btLevelNameForAddition">BT Level</label>
+                                        <input required type="text" name="btLevelNameForAddition" class="form-control" id=""
                                                placeholder="Enter BT Level">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Keywords</label>
-                                        <input type="text" name="password" class="form-control"
-                                               id="exampleInputPassword1" placeholder="Enter Keywords">
+                                        <label  for="btLevelKeywordForAddition">Keywords</label>
+                                        <input required type="text" name="btLevelKeywordForAddition" class="form-control"
+                                               id="" placeholder="Enter Keywords">
                                     </div>
 
 

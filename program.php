@@ -71,7 +71,7 @@ include("header.php");
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Program Name</label>
+                                        <label for="exampleProgramName">Program Name</label>
                                         <input type="text" name="programNameForAddtition" class="form-control" id=""
                                                placeholder="Enter Program Name">
                                     </div>

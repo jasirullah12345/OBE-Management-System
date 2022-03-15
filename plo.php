@@ -47,22 +47,22 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="" method="post" action="php/plo/insert.php">
                                 <div class="card-body">
                                 <div class="form-group">
-                                        <label for="exampleInputUSerName">Plo No</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
+                                        <label for="Plo No">Plo No</label>
+                                        <input required type="text" name="PloNoForAddition" class="form-control" id=""
                                                placeholder="Enter Plo No">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Plo Name</label>
-                                        <input type="text" name="email" class="form-control" id="exampleInputEmail1"
+                                        <label for="PloNameForAddition">Plo Name</label>
+                                        <input required type="text" name="PloNameForAddition" class="form-control" id=""
                                                placeholder="Enter Plo Name">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Keywords</label>
-                                        <input type="text" name="password" class="form-control"
-                                               id="exampleInputPassword1" placeholder="Enter Keywords">
+                                        <label for="PloKeywordForAddition">Keywords</label>
+                                        <input required type="text" name="PloKeywordForAddition" class="form-control"
+                                               id="" placeholder="Enter Keywords">
                                     </div>
 
 

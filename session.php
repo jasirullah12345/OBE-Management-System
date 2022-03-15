@@ -1,4 +1,6 @@
 <?php
+require "php/sessionCheck.php";
+require "php/database.php";
 include("header.php");
 ?>
 
@@ -47,19 +49,30 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="quickForm">
+                            <form id="" method="post" action="php/session/insert.php">
                                 <div class="card-body">
                                 <div class="form-group">
                                         <label for="exampleInputProgramName">Select Program</label>
-                                        <select name="" class="form-control" id="">
-                                            <option value="">Choose Program</option>
-                                            <option value="BSCS">CS</option>
-                                            <option value="MIT">IT</option>
+                                        <select name="selectedProgramForSession" class="form-control" id="">
+                                            <option value="">Choose Department</option>
+                                          <?php  $sql_depatrment = "select * from programs";
+                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
+                                                 if(mysqli_num_rows($qr_depatrment)>0)
+                                                  {
+                                                     while($data = mysqli_fetch_array($qr_depatrment))
+                                                     {
+                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
+                                                     }
+                                                  }
+                                                  else
+                                                  {
+                                                    echo '<option value="">Error</option>';
+                                                  }?>
                                         </select>
                                 </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Session Name</label>
-                                        <input type="text" name="email" class="form-control" id=""
+                                        <label for="exampleSessionName">Session Name</label>
+                                        <input type="text" name="sessionNameForAddition" class="form-control" id=""
                                                placeholder="Enter Session Name">
                                     </div>
 

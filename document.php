@@ -1,4 +1,6 @@
 <?php
+require "php/sessionCheck.php";
+require "php/database.php";
 include("header.php");
 ?>
 
@@ -47,51 +49,88 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form id="" method="post" action="php/department/insert.php">
+                            <form id="documentForm" method="post" action="php/documents/insert.php">
                                    <div class="card-body">
                                    <div class="form-group">
-                                        <label for="exampleInputProgramName">Select Document Type</label>
-                                        <select name="" class="form-control" id="">
-                                            <option selected value="">Choose....</option>
-                                            <option value="Paper">Paper</option>
-                                             <option value="Assignments">Assignments</option>
-                                            <option value="Quiz">Quiz</option>
+                                        <label required for="exampleInputProgramName">Select Document Type</label>
+                                        <select name="selectedDocumentType" class="form-control" id="">
+                                            <option value="">Choose Document Type</option>
+                                          <?php  $sql_depatrment = "select * from documents";
+                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
+                                                 if(mysqli_num_rows($qr_depatrment)>0)
+                                                  {
+                                                     while($data = mysqli_fetch_array($qr_depatrment))
+                                                     {
+                                                        echo '<option value="'.$data['type'].'">'.$data['type'].'</option>';
+                                                     }
+                                                  }
+                                                  else
+                                                  {
+                                                    echo '<option value="">Error</option>';
+                                                  }?>
                                         </select>
-                                </div>
+                                    </div>
+                                    
                                     <div class="form-group">
-                                        <label for="exampleInputDocumentName">Title</label>
-                                        <input type="text" name="text" class="form-control" id="exampleInputEmail1"
+                                        <label for="exampleInputTitle">Title</label>
+                                        <input required type="text" name="titleOfDocumentForAddition" class="form-control" id=""
                                                placeholder="Enter Title">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputDocumentName">Description</label>
-                                        <textarea name="" class="form-control" id="" cols="10" rows="5"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputProgramName">Select CLO</label>
-                                        <select name="" class="form-control" id="">
-                                            <option selected value="">Choose....</option>
-                                            <option value="Paper">CLO1</option>
-                                             <option value="Assignments">CLO2</option>
-                                            <option value="Quiz">CLO3</option>
-                                        </select>
-                                </div>
-                                <div class="form-group">
-                                        <label for="exampleInputProgramName">Select PLO</label>
-                                        <select name="" class="form-control" id="">
-                                            <option selected value="">Choose....</option>
-                                            <option value="Paper">PLO</option>
-                                             <option value="Assignments">PLO2</option>
-                                            <option value="Quiz">PLO3</option>
-                                        </select>
-                                </div>
+                                   
 
+                                    <div class="form-group">
+                                        <label for="exampleInputCLO">Select CLO</label>
+                                        <select required name="selectedCLOForDocument" class="form-control" id="">
+                                            <option value="">Choose CLO</option>
+                                          <?php  $sql_depatrment = "select * from clo";
+                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
+                                                 if(mysqli_num_rows($qr_depatrment)>0)
+                                                  {
+                                                     while($data = mysqli_fetch_array($qr_depatrment))
+                                                     {
+                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
+                                                     }
+                                                  }
+                                                  else
+                                                  {
+                                                    echo '<option value="">Error</option>';
+                                                  }?>
+                                        </select>
+                                    </div>
+
+
+                                <div class="form-group">
+                                        <label for="exampleInputPLO">Select PLO</label>
+                                        <select required name="selectedPLOForDocument" class="form-control" id="">
+                                            <option value="">Choose PLO</option>
+                                          <?php  $sql_depatrment = "select * from plo";
+                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
+                                                 if(mysqli_num_rows($qr_depatrment)>0)
+                                                  {
+                                                     while($data = mysqli_fetch_array($qr_depatrment))
+                                                     {
+                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
+                                                     }
+                                                  }
+                                                  else
+                                                  {
+                                                    echo '<option value="">Error</option>';
+                                                  }?>
+                                        </select>
+                                    </div>
+                                    </form>
+                                    <div class="form-group">
+                                        <label required for="exampleInputDescription">Description</label>
+                                        <textarea name="titleOfDescriptionForAddition" class="form-control" form="documentForm" id="" cols="10" rows="5"></textarea>
+                                    </div>
+                                    <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>  
                                     </div>
                                 <!-- /.card-body -->
-                                <div class="card-footer">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
+                               
+                            
+                            
                         </div>
                         <!-- /.card -->
                     </div>
