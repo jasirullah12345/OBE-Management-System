@@ -22,21 +22,19 @@ include("header.php");
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="index">Home</a></li>
-                                <li class="breadcrumb-item active" id="headers_Right">ISP OBE System</li>
+                                <li class="breadcrumb-item active" id="headers_Right">Home</li>
                             </ol>
                         </div><!-- /.col -->
-
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
-
             <!-- Main content -->
-
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div id="loader" style="display: none;"></div>
                 <div class="row" id="body">
+                    <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
                         <div class="small-box bg-info">
@@ -54,7 +52,7 @@ include("header.php");
                             <div class="icon">
                                 <i class="ion ion-bag"></i>
                             </div>
-                            <a class="small-box-footer courser NewOrders">More info <i
+                            <a href="course" class="small-box-footer">More info <i
                                         class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -72,12 +70,13 @@ include("header.php");
                                         echo $data['total_session'];
                                     } ?></h3>
 
-                                <p>Active Session</p>
+                                <p>Total Session</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-stats-bars"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="session" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -98,7 +97,7 @@ include("header.php");
                             <div class="icon">
                                 <i class="ion ion-person-add"></i>
                             </div>
-                            <a class="small-box-footer courser ViewClientBtnLink">More info <i
+                            <a href="teacher" class="small-box-footer">More info <i
                                         class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
@@ -121,24 +120,14 @@ include("header.php");
                             <div class="icon">
                                 <i class="ion ion-pie-graph"></i>
                             </div>
-                            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="department" class="small-box-footer">More info <i
+                                        class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
-                    <!-- ./col -->
-                    <!-- <div id="loaderr" style="display: none;"></div> -->
-
                 </div>
             </div>
-            <!-- <div id="newordersDashboardHome"></div> -->
-            <!-- /.row -->
-            <!-- Main row -->
-
-            <!-- /.content-wrapper -->
-
-
         </div>
         <!-- ./wrapper -->
-
     </div>
 
 <?php
