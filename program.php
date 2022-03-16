@@ -55,29 +55,23 @@ include("header.php");
                                         <label for="exampleInputProgramName">Select Department</label>
                                         <select name="selectedDepartment" class="form-control" id="" required>
                                             <option value="">Choose Department</option>
-                                          <?php  $sql_depatrment = "select * from department";
-                                                 $qr_depatrment  = mysqli_query($conn,$sql_depatrment);
-                                                 if(mysqli_num_rows($qr_depatrment)>0)
-                                                  {
-                                                     while($data = mysqli_fetch_array($qr_depatrment))
-                                                     {
-                                                        echo '<option value="'.$data['id'].'">'.$data['name'].'</option>';
-                                                     }
-                                                  }
-                                                  else
-                                                  {
-                                                    echo '<option value="">Error</option>';
-                                                  }?>
+                                            <?php $sql_depatrment = "select * from department";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            } else {
+                                                echo '<option value="">Error</option>';
+                                            } ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleProgramName">Program Name</label>
-                                        <input required type="text" name="programNameForAddtition" class="form-control" id=""
+                                        <input required type="text" name="programNameForAddtition" class="form-control"
+                                               id=""
                                                placeholder="Enter Program Name">
                                     </div>
-                                    
-
-
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">

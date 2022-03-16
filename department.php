@@ -43,27 +43,56 @@ include("header.php");
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- jquery validation -->
-                        <div class="card card-primary">
+                        <?php
+                        if (isset($_GET['edit']) && $_GET['edit'] == "true") {
+                            echo '<div class="card card-warning">
+                            <div class="card-header">
+                                <h3 class="card-title">Update Department </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="" method="post" action="php/department/update.php">
+                                <div class="card-body">
+                                <input type="text" hidden name="id" value="' . $_GET["id"] . '">
+                                    <div class="form-group">
+                                        <label for="exampleInputDepartmentName">Department Name</label>
+                                        <input type="text" name="name" class="form-control"
+                                               id="exampleInputEmail1" value="' . $_GET["name"] . '"
+                                               required placeholder="Enter Department Name">
+                                    </div>
+
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                            </form>
+                        </div>';
+                        } else {
+                            echo '<div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Add New Department </h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                             <form id="" method="post" action="php/department/insert.php">
-                                   <div class="card-body">
+                                <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputDepartmentName">Department Name</label>
-                                        <input type="text" name="departNameForAddition" class="form-control" id="exampleInputEmail1"
-                                             required  placeholder="Enter Department Name">
+                                        <input type="text" name="departNameForAddition" class="form-control"
+                                               id="exampleInputEmail1"
+                                               required placeholder="Enter Department Name">
                                     </div>
 
-                                    </div>
+                                </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                        </div>
+                        </div>';
+                        }
+                        ?>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
@@ -90,31 +119,37 @@ include("header.php");
                         <tr>
                             <th>Sr #</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
+                        <?php
+                        $sql = "SELECT * FROM department";
+                        $result = $conn->query($sql);
+                        $count = 1;
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
+                            <td>' . $count . '</td>
+                            <td>' . $row["name"] . '</td>
                             <td>
-                                <button class="btn btn-warning">Action</button>
+                            <a href="department?edit=true&id=' . $row["id"] . '&name=' . $row["name"] . '" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Action</button>
+                            <a href="php/department/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
                             </td>
-                        </tr>
+                        </tr>';
+                            $count++;
+                        }
+                        ?>
 
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>Sr #</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
