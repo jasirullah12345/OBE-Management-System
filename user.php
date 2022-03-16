@@ -43,27 +43,13 @@ if ($_SESSION['role'] != "admin")
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- jquery validation -->
-                        <div class="card <?php
+                        <?php
                         if (isset($_GET['edit']) && $_GET['edit'] == "true") {
-                            echo "card-warning";
-                        } else {
-                            echo "card-primary";
-                        }
-                        ?>">
+                            echo '<div class="card card-warning">
                             <div class="card-header">
-                                <h3 class="card-title">
-                                    <?php
-                                    if (isset($_GET['edit']) && $_GET['edit'] == "true") {
-                                        echo "Edit User";
-                                    } else {
-                                        echo "Add New User";
-                                    }
-                                    ?>
-                                </h3>
+                                <h3 class="card-title">Edit User</h3>
                             </div>
-                            <?php
-                            if (isset($_GET['edit']) && $_GET['edit'] == "true") {
-                                echo '<!-- Edit form start -->
+                            <!-- Edit form start -->
                             <form id="quickForm" method="post" action="php/user/update.php">
                                 <div class="card-body">
                                     <input type="text" hidden name="userId" value="' . $_GET["id"] . '">
@@ -83,9 +69,14 @@ if ($_SESSION['role'] != "admin")
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-warning">Submit</button>
                                 </div>
-                            </form>';
-                            } else {
-                                echo '<!--New form start -->
+                            </form>  
+                    </div>';
+                        } else {
+                            echo '<div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Add New User</h3>
+                            </div>
+                            <!--New form start -->
                             <form id="quickForm" method="post" action="php/user/insert.php">
                                 <div class="card-body">
                                     <div class="form-group">
@@ -111,9 +102,9 @@ if ($_SESSION['role'] != "admin")
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
-                            </form>';
-                            } ?>
-                        </div>
+                            </form>
+                            </div>';
+                        } ?>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
