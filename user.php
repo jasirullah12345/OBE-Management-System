@@ -69,21 +69,14 @@ if ($_SESSION['role'] != "admin")
                                     <input type="text" hidden name="userId" value="' . $_GET["id"] . '">
                                     <div class="form-group">
                                         <label for="exampleInputUSerName">User Name</label>
-                                        <input required type="text" name="userName" autocomplete="off"
-                                               class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter USer Name">
+                                        <input required type="text" name="userName"
+                                               class="form-control" value="' . $_GET["name"] . '">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
-                                        <input required type="email" autocomplete="off" name="userEmail"
+                                        <input required type="email" name="userEmail"
                                                class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Password</label>
-                                        <input required type="password" autocomplete="off" name="userPassword"
-                                               class="form-control"
-                                               id="exampleInputPassword1" placeholder="Password">
+                                               placeholder="Enter email" value="' . $_GET["email"] . '">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -99,7 +92,7 @@ if ($_SESSION['role'] != "admin")
                                         <label for="exampleInputUSerName">User Name</label>
                                         <input required type="text" name="userName" autocomplete="off"
                                                class="form-control" id="exampleInputEmail1"
-                                               placeholder="Enter USer Name">
+                                               placeholder="Enter User Name">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email address</label>
@@ -165,7 +158,7 @@ if ($_SESSION['role'] != "admin")
                             <td>' . $row["name"] . '</td>
                             <td>' . $row["email"] . '</td>
                             <td>
-                            <a href="user?edit=true&id=' . $row["id"] . '" class="btn btn-warning">Edit</a>
+                            <a href="user?edit=true&id=' . $row["id"] . '&name=' . $row["name"] . '&email=' . $row["email"] . '" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
                             <a href="php/user/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
