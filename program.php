@@ -43,7 +43,61 @@ include("header.php");
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- jquery validation -->
-                        <div class="card card-primary">
+                        <?php
+                        if(isset($_GET['edit']) && $_GET['edit'] == "true")
+                        {
+                         echo '<div class="card card-warning">
+                             <div class="card-header">
+                                 <h3 class="card-title">Add New Program </h3>
+                             </div>
+                             <!-- /.card-header -->
+                             <!-- form start -->
+                             <form id="" method="post" action="php/program/update.php">
+                             <input type="hidden" name = "id" value = "'.$_GET['id'].'">
+                                 <div class="card-body">
+                                     <div class="form-group">
+                                         <label for="exampleInputProgramName">Select Department</label>
+                                         
+                                         <select name="selectedDepartmentForSession" class="form-control" id="" required>
+                                             <option value="">Choose Program</option>';
+                                              $sql_depatrment = "select * from department";
+                                             $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                             if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                 while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    
+                                                     if($data['id']==$_GET['depart_id'])
+                                                     {
+                                                         echo '<option selected value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                     }
+                                                     else
+                                                     {
+                                                         echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                     }
+                                                    
+                                                 }
+                                             } else {
+                                                 echo '<option value="">Error</option>';
+                                             } 
+                                        echo ' </select>
+                                     </div>
+                                     <div class="form-group">
+                                         <label for="exampleSessionName">Program Name</label>
+                                         <input required type="text" name="ProgramtNameForAddition" class="form-control" id=""
+                                                placeholder="Enter Session Name" value = "'.$_GET['name'].'">
+                                     </div>
+      
+      
+                                 </div>
+                                 <!-- /.card-body -->
+                                 <div class="card-footer">
+                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                 </div>
+                             </form>
+                         </div>'; 
+                        }
+                        else
+                        {
+                            echo '<div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Add New Program </h3>
                             </div>
@@ -54,8 +108,8 @@ include("header.php");
                                     <div class="form-group">
                                         <label for="exampleInputProgramName">Select Department</label>
                                         <select name="selectedDepartment" class="form-control" id="" required>
-                                            <option value="">Choose Department</option>
-                                            <?php $sql_depatrment = "select * from department";
+                                            <option value="">Choose Department</option>';
+                                             $sql_depatrment = "select * from department";
                                             $qr_depatrment = mysqli_query($conn, $sql_depatrment);
                                             if (mysqli_num_rows($qr_depatrment) > 0) {
                                                 while ($data = mysqli_fetch_array($qr_depatrment)) {
@@ -63,8 +117,8 @@ include("header.php");
                                                 }
                                             } else {
                                                 echo '<option value="">Error</option>';
-                                            } ?>
-                                        </select>
+                                            } 
+                                      echo '</select>
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleProgramName">Program Name</label>
@@ -78,7 +132,9 @@ include("header.php");
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                        </div>
+                        </div>';
+                        }
+                        ?>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
@@ -105,31 +161,52 @@ include("header.php");
                         <tr>
                             <th>Sr #</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Department</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
-                            <td>
-                                <button class="btn btn-warning">Action</button>
+                        <?php
+                        $sql = "select * from programs";
+                        $result = $conn->query($sql);
+                        $count = 1;
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
+                            <td>' . $count . '</td>
+                            <td>' . $row["name"] . '</td>';
+                            $sql_department = "select * from department where id = '".$row["depart_id"]."' ";
+                            $qr_depatrment_ = mysqli_query($conn, $sql_department);
+                           
+                            if(mysqli_num_rows($qr_depatrment_)>0)
+                            {
+                                
+                                $qr_depatrment_fetch = mysqli_fetch_assoc($qr_depatrment_);
+                                echo '<td>' . $qr_depatrment_fetch["name"] . '</td>';
+                            }
+                            else
+                            {
+                                echo '<td></td>';
+                            }
+                            
+                          echo '  <td>
+                            <a href="program?edit=true&id=' . $row["id"] . '&name=' . $row["name"] . '&depart_id=' . $row["depart_id"] . ' " class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Action</button>
+                            <a href="php/program/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
                             </td>
-                        </tr>
+                        </tr>';
+                            $count++;
+                        }
+                        ?>
 
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>Sr #</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Department</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>

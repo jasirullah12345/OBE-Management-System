@@ -130,7 +130,8 @@ include("header.php");
                         $result = $conn->query($sql);
                         $count = 1;
                         // output data of each row
-                        while ($row = $result->fetch_assoc()) {
+                        while ($row = $result->fetch_assoc()) 
+                        {
                             echo '<tr>
                             <td>' . $count . '</td>
                             <td>' . $row["name"] . '</td>
