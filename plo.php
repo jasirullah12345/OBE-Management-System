@@ -43,6 +43,44 @@ include("header.php");
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- jquery validation -->
+                        <?php
+                        if (isset($_GET['edit']) && $_GET['edit'] == "true") {
+                            echo '
+                        <div class="card card-warning">
+                            <div class="card-header">
+                                <h3 class="card-title">Update PLO </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="" method="post" action="php/plo/update.php">
+                                <div class="card-body">
+                                <div class="form-group">
+                                <input type="text" hidden name="id" value="' . $_GET["id"] . '">
+                                        <label for="Plo No">Plo No</label>
+                                        <input required type="text" name="PloNoForAddition" class="form-control" id="" value="' . $_GET["plo_no"] . '"
+                                               placeholder="Enter Plo No">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PloNameForAddition">Plo Name</label>
+                                        <input required type="text" name="PloNameForAddition" class="form-control" id="" value="' . $_GET["name"] . '"
+                                               placeholder="Enter Plo Name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="PloKeywordForAddition">Keywords</label>
+                                        <input required type="text" name="PloKeywordForAddition" class="form-control" value="' . $_GET["keywords"] . '"
+                                               id="" placeholder="Enter Keywords">
+                                    </div>
+
+
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                            </form>
+                        </div>';
+                        } else {
+                            echo '
                         <div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Add New PLO </h3>
@@ -74,7 +112,10 @@ include("header.php");
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                        </div>
+                        </div>';
+
+                        }
+                        ?>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
@@ -100,32 +141,44 @@ include("header.php");
                         <thead>
                         <tr>
                             <th>Sr #</th>
+                            <th>PLO #</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Keywords</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
+                        <?php
+                        $sql = "SELECT * FROM plo";
+                        $result = $conn->query($sql);
+                        $count = 1;
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
+                            <td>' . $count . '</td>
+                            <td>' . $row["plo_no"] . '</td>
+                            <td>' . $row["name"] . '</td>
+                            <td>' . $row["keywords"] . '</td>
                             <td>
-                                <button class="btn btn-warning">Action</button>
+                            <a href="plo?edit=true&id=' . $row["id"] . '&plo_no=' . $row["plo_no"] . '&name=' . $row["name"] . '&keywords=' . $row["keywords"] . '" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Action</button>
+                            <a href="php/plo/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
                             </td>
-                        </tr>
+                        </tr>';
+                            $count++;
+                        }
+                        ?>
 
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>Sr #</th>
+                            <th>PLO #</th>
                             <th>Name</th>
-                            <th>Email</th>
+                            <th>Keywords</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
