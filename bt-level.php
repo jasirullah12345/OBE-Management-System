@@ -49,22 +49,43 @@ include("header.php");
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
+                            <div class="card card-success m-3 mb-0 pb-3">
+                                <div class="card-header">
+                                    <h3 class="card-title">Select CSV File</h3>
+                                </div>
+                                <form class="w-100 d-flex px-3 mt-2" method="post" enctype="multipart/form-data"
+                                      action="php/btlevel/upload.php">
+                                    <div class="d-flex flex-column justify-content-center w-100">
+                                        <input required type="file" name="btNoForAddition"
+                                               class="form-control h-100 my-2"
+                                               id="btNoForAddition" accept=".csv"
+                                               placeholder="Enter BT No">
+                                        <div class="text-center mt-1">
+                                            <button class="btn btn-success" type="submit">Upload</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- form start -->
                             <form id="" method="post" action="php/btlevel/insert.php">
                                 <div class="card-body">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="btNoForAddition">BT No</label>
-                                        <input required type="text" name="btNoForAddition" class="form-control" id=""
+                                        <input required type="text" name="btNoForAddition" class="form-control"
+                                               id="btNoForAddition"
                                                placeholder="Enter BT No">
                                     </div>
                                     <div class="form-group">
                                         <label for="btLevelNameForAddition">BT Level</label>
-                                        <input required type="text" name="btLevelNameForAddition" class="form-control" id=""
+                                        <input required type="text" name="btLevelNameForAddition" class="form-control"
+                                               id="btNoForAddition"
                                                placeholder="Enter BT Level">
                                     </div>
                                     <div class="form-group">
-                                        <label  for="btLevelKeywordForAddition">Keywords</label>
-                                        <input required type="text" name="btLevelKeywordForAddition" class="form-control"
-                                               id="" placeholder="Enter Keywords">
+                                        <label for="btLevelKeywordForAddition">Keywords</label>
+                                        <input required type="text" name="btLevelKeywordForAddition"
+                                               class="form-control"
+                                               id="btNoForAddition" placeholder="Enter Keywords">
                                     </div>
 
 
