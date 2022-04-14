@@ -43,40 +43,35 @@ include("header.php");
                     <!-- left column -->
                     <div class="col-md-12">
                         <!-- jquery validation -->
-                        <div class="card card-primary">
+                        <?php
+                        if (isset($_GET['edit']) && $_GET['edit'] == "true") {
+                            echo '<div class="card card-warning">
                             <div class="card-header">
-                                <h3 class="card-title">Add New Assign Course </h3>
+                                <h3 class="card-title">Edit Course</h3>
                             </div>
-                            <!-- /.card-header -->
-                            <!-- form start -->
-                            <form id="" method="post" action="php/course-to-teacher/insert.php">
+                            <!-- Edit form start -->
+                            <form id="" method="post" action="php/course-to-teacher/update.php">
                                 <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputProgramName">Select Teacher</label>
-                                        <select name="selectedTeacherForCourse" class="form-control" id="" required>
-                                            <option value="">Choese Teacher</option>
-                                            <?php $sql_depatrment = "select * from teachers";
-                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
-                                            if (mysqli_num_rows($qr_depatrment) > 0) {
-                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
-                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
-                                                }
-                                            } ?>
-                                        </select>
-                                    </div>
+                                <input type="text" hidden name="id" value="' . $_GET["id"] . '">
+                                <input type="text" hidden name="teacherID" value="' . $_GET["teacher_id"] . '">
+                                <div class="form-group">
+                                    <label for="exampleInputUSerName">Selected Teacher</label>
+                                    <input readonly required type="text" name="teacherName"
+                                           class="form-control" value="' . $_GET["Tname"] . '">
+                                </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputProgramName">Select Course</label>
                                         <select name="selectedCourseForCourse" class="form-control" id="" required>
-                                            <option value="">Select Course</option>
-                                            <?php $sql_depatrment = "select * from courses";
+                                            <option value="">Select Course</option>';
+                                            $sql_depatrment = "select * from courses";
                                             $qr_depatrment = mysqli_query($conn, $sql_depatrment);
                                             if (mysqli_num_rows($qr_depatrment) > 0) {
                                                 while ($data = mysqli_fetch_array($qr_depatrment)) {
                                                     echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
                                                 }
-                                            } ?>
-                                        </select>
+                                            }
+                                       echo' </select>
                                     </div>
 
                                 </div>
@@ -85,7 +80,51 @@ include("header.php");
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                        </div>
+                    </div>';
+                        } else {
+                            echo '<div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Add New Teacher</h3>
+                            </div>
+                            <!--New form start -->
+                            <form id="" method="post" action="php/course-to-teacher/insert.php">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="exampleInputProgramName">Select Teacher</label>
+                                        <select name="selectedTeacherForCourse" class="form-control" id="" required>
+                                            <option value="">Choese Teacher</option>';
+                                            $sql_depatrment = "select * from teachers";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            } 
+                                      echo'  </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="exampleInputProgramName">Select Course</label>
+                                        <select name="selectedCourseForCourse" class="form-control" id="" required>
+                                            <option value="">Select Course</option>';
+                                            $sql_depatrment = "select * from courses";
+                                            $qr_depatrment = mysqli_query($conn, $sql_depatrment);
+                                            if (mysqli_num_rows($qr_depatrment) > 0) {
+                                                while ($data = mysqli_fetch_array($qr_depatrment)) {
+                                                    echo '<option value="' . $data['id'] . '">' . $data['name'] . '</option>';
+                                                }
+                                            }
+                                       echo' </select>
+                                    </div>
+
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                            </div>';
+                        } ?>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
@@ -111,32 +150,60 @@ include("header.php");
                         <thead>
                         <tr>
                             <th>Sr #</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>Teacher</th>
+                            <th>Course</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
+                        <?php
+                        $sql = "SELECT * FROM course_to_teacher";
+                        $result = $conn->query($sql);
+                        $count = 1;
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            // Teacher Name Fetching 
+                            $sql_taecher = "select * from teachers where id = '".$row['teacher_id']."'";
+                            $qr_taecher = mysqli_query($conn,$sql_taecher);
+                            if(mysqli_num_rows( $qr_taecher)>0)
+                            {
+                                $teacher_name  = mysqli_fetch_assoc($qr_taecher);
+                            }
+                           
+
+                            //  Course Name Fetching
+                            $sql_course = "select * from courses where id = '".$row['course_id']."'";
+                            $qr_course = mysqli_query($conn,$sql_course);
+                            if(mysqli_num_rows($qr_course)>0)
+                            {
+                                $course_name  = mysqli_fetch_assoc($qr_course);
+                            }
+
+                            
+                            echo '<tr>
+                            <td>' . $count . '</td>
+                            <td>' . $teacher_name["name"] . '</td>
+                            <td>' . $course_name["name"] . '</td>
+                           
                             <td>
-                                <button class="btn btn-warning">Action</button>
+                            <a href="course-to-teacher?edit=true&id=' . $row["id"] . '&Tname=' . $teacher_name["name"] . '&Cname=' . $course_name["name"] . '&teacher_id=' . $row["teacher_id"] . '" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Action</button>
+                            <a href="php/course-to-teacher/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
                             </td>
-                        </tr>
+                        </tr>';
+                            $count++;
+                        }
+                        ?>
 
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>Sr #</th>
-                            <th>Name</th>
-                            <th>Email</th>
+                            <th>Teacher</th>
+                            <th>Course</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
