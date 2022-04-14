@@ -192,7 +192,7 @@ include("header.php");
                                 echo '<td></td>';
                             }
                             
-                          echo '  <td>
+                          echo '<td>
                             <a href="session?edit=true&id=' . $row["id"] . '&name=' . $row["name"] . '&program_id=' . $row["program_id"] . ' " class="btn btn-warning">Edit</a>
                             </td>
                             <td>
