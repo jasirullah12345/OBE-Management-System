@@ -42,8 +42,33 @@ include("header.php");
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
-                        <!-- jquery validation -->
-                        <div class="card card-primary">
+                        <?php
+                        if (isset($_GET['edit']) && $_GET['edit'] == "true") {
+                            echo '<div class="card card-warning">
+                            <div class="card-header">
+                                <h3 class="card-title">Update Course </h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="" method="post" action="php/course/update.php">
+                                <div class="card-body">
+                                <input type="text" hidden name="id" value="' . $_GET["id"] . '">
+                                    <div class="form-group">
+                                        <label for="exampleInputDepartmentName">Course Name</label>
+                                        <input type="text" name="courseForAddition" class="form-control"
+                                               id="exampleInputEmail1" value="' . $_GET["name"] . '"
+                                               required placeholder="Enter Course Name">
+                                    </div>
+
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                            </form>
+                        </div>';
+                        } else {
+                            echo '<div class="card card-primary">
                             <div class="card-header">
                                 <h3 class="card-title">Add New Course </h3>
                             </div>
@@ -51,13 +76,12 @@ include("header.php");
                             <!-- form start -->
                             <form id="" method="post" action="php/course/insert.php">
                                 <div class="card-body">
-                                <div class="form-group">
-                                        <label for="exampleInputCourseName">Course Name</label>
-                                        <input type="text" name="courseForAddition" class="form-control" id=""
-                                             required  placeholder="Enter Course Name">
+                                    <div class="form-group">
+                                        <label for="exampleInputDepartmentName">Course Name</label>
+                                        <input type="text" name="courseForAddition" class="form-control"
+                                               id="exampleInputEmail1"
+                                               required placeholder="Enter Course Name">
                                     </div>
-                                   
-
 
                                 </div>
                                 <!-- /.card-body -->
@@ -65,8 +89,9 @@ include("header.php");
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                        </div>
-                        <!-- /.card -->
+                        </div>';
+                        }
+                        ?>
                     </div>
                     <!--/.col (left) -->
                     <!-- right column -->
@@ -80,10 +105,9 @@ include("header.php");
         </section>
 
         <div class="card-body">
-
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">All Courses </h3>
+                    <h3 class="card-title">All Courses</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body overflow-auto">
@@ -92,31 +116,38 @@ include("header.php");
                         <tr>
                             <th>Sr #</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
+                        <?php
+                        $sql = "SELECT * FROM courses";
+                        $result = $conn->query($sql);
+                        $count = 1;
+                        // output data of each row
+                        while ($row = $result->fetch_assoc())
+                        {
+                            echo '<tr>
+                            <td>' . $count . '</td>
+                            <td>' . $row["name"] . '</td>
                             <td>
-                                <button class="btn btn-warning">Action</button>
+                            <a href="course?edit=true&id=' . $row["id"] . '&name=' . $row["name"] . '" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Action</button>
+                            <a href="php/course/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
                             </td>
-                        </tr>
+                        </tr>';
+                            $count++;
+                        }
+                        ?>
 
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>Sr #</th>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -126,8 +157,6 @@ include("header.php");
                 <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
-
         </div>
     </div>
 
