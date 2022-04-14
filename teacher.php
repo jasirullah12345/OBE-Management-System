@@ -42,34 +42,73 @@ include("header.php");
                 <div class="row">
                     <!-- left column -->
                     <div class="col-md-12">
-                        <!-- jquery validation -->
-                        <div class="card card-primary">
+                    <?php
+                        if (isset($_GET['edit']) && $_GET['edit'] == "true") {
+                            echo '<div class="card card-warning">
                             <div class="card-header">
-                                <h3 class="card-title">Add New Teacher </h3>
+                                <h3 class="card-title">Edit User</h3>
                             </div>
-                            <!-- /.card-header -->
-                            <!-- form start -->
+                            <!-- Edit form start -->
+                            <form id="" method="post" action="php/teacher/update.php">
+                                <div class="card-body">
+                                    <input type="text" hidden name="teacherID" value="' . $_GET["id"] . '">
+                                    <div class="form-group">
+                                        <label for="exampleInputUSerName">Teacher Name</label>
+                                        <input required type="text" name="teacherName"
+                                               class="form-control" value="' . $_GET["name"] . '">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input required type="email" name="teacherEmail"
+                                               class="form-control" id="exampleInputEmail1"
+                                               placeholder="Enter email" value="' . $_GET["email"] . '">
+                                    </div>
+                                    <div class="form-group">
+                                    <label for="exampleInputEmail1">New Passowrd</label>
+                                    <input required type="password" name="teacherPass"
+                                           class="form-control" id="exampleInputEmail1"
+                                           placeholder="Enter Password">
+                                </div>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-warning">Submit</button>
+                                </div>
+                            </form>  
+                    </div>';
+                        } else {
+                            echo '<div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Add New Teacher</h3>
+                            </div>
+                            <!--New form start -->
                             <form id="" method="post" action="php/teacher/insert.php">
                                 <div class="card-body">
                                 <div class="form-group">
-                                        <label for="exampleInputDepartmentName">Teacher Name</label>
-                                        <input type="text" name="teacherForAddition" class="form-control" id="exampleInputEmail1"
-                                             required  placeholder="Enter Teacher Name">
+                                <label for="exampleInputDepartmentName">Teacher Name</label>
+                                <input type="text" name="teacherForAddition" class="form-control" id="exampleInputEmail1"
+                                     required  placeholder="Enter Teacher Name">
+                            </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Email address</label>
+                                        <input required type="email" autocomplete="off" name="teacherEmail"
+                                               class="form-control" id="exampleInputEmail1"
+                                               placeholder="Enter email">
                                     </div>
-                                   
-
-
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input required type="password" autocomplete="off" name="teacherPassword"
+                                               class="form-control"
+                                               id="exampleInputPassword1" placeholder="Password">
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                             </form>
-                        </div>
-                        <!-- /.card -->
-                    </div>
-                    <!--/.col (left) -->
-                    <!-- right column -->
+                            </div>';
+                        } ?>
                     <div class="col-md-6">
 
                     </div>
@@ -91,32 +130,44 @@ include("header.php");
                         <thead>
                         <tr>
                             <th>Sr #</th>
-                            <th>Name</th>
+                            <th>Teacher Name</th>
                             <th>Email</th>
+                            <th>Password</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td>1</td>
-                            <td>Trident</td>
-                            <td>Internet</td>
+                        <?php
+                        $sql = "SELECT * FROM teachers";
+                        $result = $conn->query($sql);
+                        $count = 1;
+                        // output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<tr>
+                            <td>' . $count . '</td>
+                            <td>' . $row["name"] . '</td>
+                            <td>' . $row["email"] . '</td>
+                            <td>' . md5($row["password"]) . '</td>
                             <td>
-                                <button class="btn btn-warning">Action</button>
+                            <a href="teacher?edit=true&id=' . $row["id"] . '&name=' . $row["name"] . '&email=' . $row["email"] . '" class="btn btn-warning">Edit</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Action</button>
+                            <a href="php/teacher/delete?id=' . $row["id"] . '" class="btn btn-danger">Delete</a>
                             </td>
-                        </tr>
+                        </tr>';
+                            $count++;
+                        }
+                        ?>
 
                         </tbody>
                         <tfoot>
                         <tr>
                             <th>Sr #</th>
-                            <th>Name</th>
+                            <th>Teacher Name</th>
                             <th>Email</th>
+                            <th>Password</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
