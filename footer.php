@@ -3,10 +3,9 @@
     <strong>Copyright &copy; <a href="#">ISP</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
-      <strong>Developed By  <a href="#">Jasir Ullah Khan / Ali Usama</a></strong>
+        <strong>Developed By <a href="#">Jasir Ullah Khan</a></strong>
     </div>
-  </footer>
-
+</footer>
 
 
 <script src="plugins/jquery/jquery.min.js"></script>
@@ -14,7 +13,7 @@
 <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-  $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -71,7 +70,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js" integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.0/html2canvas.min.js"
+        integrity="sha512-UcDEnmFoMh0dYHu0wGsf5SKB7z7i5j3GuXHCnb3i4s44hfctoLihr896bxM0zL7jGkcHQXXrJsFIL62ehtd6yQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="dist/js/delivery.js"></script>
 <script src="dist/js/addnewproduct.js"></script>
 <script src="dist/js/customerPriceUpdater.js"></script>
@@ -81,19 +82,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
 
 
-
 <!-- checkeer -->
-
-
-
-
-
-
-
-
-
-
-
 
 
 </body>
